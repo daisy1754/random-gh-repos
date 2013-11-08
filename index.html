@@ -1,0 +1,27 @@
+<html ng-app="randomGHRepos">
+<head>
+  <title>Query Random Repositories from GitHub</title>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+  <script type="text/javascript" src="controllers.js"></script>
+</head>
+  <body ng-controller="RepoListCtrl">
+    <div style="width: 800px; margin: auto">
+      <h1>Query Random Repositories from GitHub</h1>
+      <button ng-click="querySearchAPI()">Pick Random JS Repos Using Search API</button>
+      <ul>
+	<li ng-repeat="repo in repos">
+	  <div class="repo">
+            <div>
+              <span><a href="{{repo.html_url}}">{{repo.full_name}}</a></span>
+              <span ng-if="repo.language">{{repo.language}}</span>
+              <span ng-if="repo.size">Size: {{repo.size}}</span>
+              <span>Since {{repo.created_at}} (last updated at {{repo.updated_at}})</span>
+	    </div>
+            <div ng-if="repo.description">{{repo.description}}</div>
+            <div ng-if="repo.homepage"><a href="{{repo.homepage}}">{{repo.homepage}}</a></div>
+          </div>
+	</li>
+      </ul>
+    </div>
+  </body>
+</html>
