@@ -8,6 +8,11 @@
   margin-bottom: 15px;
 }
 
+.loading-indicator-container {
+  margin-top: 50px;
+  margin-left: 200px;
+}
+
 ul.repos {
   list-style-type: none;
 }
