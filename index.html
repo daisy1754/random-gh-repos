@@ -3,25 +3,37 @@
   <title>Query Random Repositories from GitHub</title>
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
   <script type="text/javascript" src="controllers.js"></script>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap-theme.min.css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="style.css">
 </head>
-  <body ng-controller="RepoListCtrl">
-    <div style="width: 800px; margin: auto">
-      <h1>Query Random Repositories from GitHub</h1>
-      <button ng-click="querySearchAPI()">Pick Random JS Repos Using Search API</button>
-      <ul>
-	<li ng-repeat="repo in repos">
-	  <div class="repo">
-            <div>
-              <span><a href="{{repo.html_url}}">{{repo.full_name}}</a></span>
-              <span ng-if="repo.language">{{repo.language}}</span>
-              <span ng-if="repo.size">Size: {{repo.size}}</span>
-              <span>Since {{repo.created_at}} (last updated at {{repo.updated_at}})</span>
-	    </div>
-            <div ng-if="repo.description">{{repo.description}}</div>
-            <div ng-if="repo.homepage"><a href="{{repo.homepage}}">{{repo.homepage}}</a></div>
-          </div>
-	</li>
-      </ul>
+  <body class="container">
+    <div class="container">
+      <div class="header">
+        <h3>Query Random Repositories from GitHub</h3>
+      </div>
+      <div class="main col-lg-10" ng-controller="RepoListCtrl">
+        <button ng-click="querySearchAPI()" class="start-search-button">Pick Random JS Repos Using Search API</button>
+        <div class="result-container">
+          <ul class="repos list-group">
+	    <li ng-repeat="repo in repos" class="list-group-item">
+	      <div class="repo">
+		<div>
+		  <h4><a href="{{repo.html_url}}">{{repo.full_name}}</a></h4>
+                  <ul class="basic-info">
+		    <li ng-hide="!repo.language">{{repo.language}}</span></li>
+		    <li ng-hide="!repo.size">{{repo.size}} KBytes</span></li>
+		    <li><span class="title">Since</span>{{repo.created_at}} (last updated at {{repo.updated_at}})</span></li>
+                  </ul>
+		</div>
+		<p ng-hide="!repo.description">{{repo.description}}</p>
+		<div ng-hide="!repo.homepage"><span class="label label-default label-url">URL</span><a href="{{repo.homepage}}">{{repo.homepage}}</a></div>
+              </div>
+	    </li>
+	  </ul>
+      </div>
+      </div>
     </div>
   </body>
 </html>

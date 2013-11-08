@@ -1,0 +1,51 @@
+.header {
+  border-bottom: 2px solid #dfdfdf;
+  margin-bottom: 5px;
+}
+
+.start-search-button {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+ul.repos {
+  list-style-type: none;
+}
+
+.repo h4 {
+  margin-bottom: 5px;
+}
+
+.repo .basic-info {
+  background-color: #f6f6f6;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 0;
+  margin-bottom: 10px;
+}
+
+.repo .basic-info li {
+  list-style-type: none;
+  display: inline;
+  padding-right: 15px;
+  padding-left: 7px;
+  border-right: 1px solid #cccccc;
+}
+
+.repo .basic-info li:last-child {
+  border-right: none;
+}
+
+.repo .basic-info li .title {
+  padding: 3px;
+}
+
+.repo p {
+  font-size: 16px;
+}
+
+.repo .label-url {
+  background-color: #bbb;
+  margin-left: 5px;
+  margin-right: 7px;
+}
