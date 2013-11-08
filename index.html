@@ -14,7 +14,8 @@
         <h3>Query Random Repositories from GitHub</h3>
       </div>
       <div class="main col-lg-10" ng-controller="RepoListCtrl" ng-init="querySearchAPI()">
-        <button ng-click="querySearchAPI()" class="start-search-button">Pick Random JS Repos Using Search API</button>
+        <button ng-click="querySearchAPI()" class="start-search-button">Random JS Repos Using Search API</button>
+        <button ng-click="queryRepositoriesAPI()" class="start-search-button">Random Repos Using Repositories API</button>
         <div class="result-container">
           <div class="loading-indicator-container" ng-hide="repos"><img src="loading-indicator.gif"></div>
           <ul class="repos list-group">
@@ -25,7 +26,9 @@
                   <ul class="basic-info">
 		    <li ng-hide="!repo.language">{{repo.language}}</span></li>
 		    <li ng-hide="!repo.size">{{repo.size}} KBytes</span></li>
-		    <li><span class="title">Since</span>{{repo.created_at}} (last updated at {{repo.updated_at}})</span></li>
+		    <li ng-hide="!repo.created_at || !repo.updated_at">
+                       <span class="title">Since</span>{{repo.created_at}} (last updated at {{repo.updated_at}})</span>
+                    </li>
                   </ul>
 		</div>
 		<p ng-hide="!repo.description">{{repo.description}}</p>
