@@ -31,4 +31,15 @@ App.controller('RepoListCtrl', function RepoListCtrl($scope, $http) {
       var now = $scope.currentDate;
       return now.getFullYear() + "-" + (now.getMonth() + 1) + "-" + now.getDate();
   }
+
+  $scope.filter = function(item) {
+    var shouldBeDisplayed = true;
+    if ($scope.descriptionFilter && !item.description) {
+      shouldBeDisplayed = false;
+    }
+    if ($scope.urlFilter && !item.homepage) {
+      shouldBeDisplayed = false;
+    }
+    return shouldBeDisplayed;
+  }
 });

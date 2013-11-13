@@ -9,6 +9,18 @@
   margin-right: 15px;
 }
 
+.filters {
+  float:left;
+}
+
+.filter {
+  margin-left: 5px;
+}
+
+.filter input {
+  margin-left: 5px;
+}
+
 .result-info {
   text-align: right;
 }
@@ -24,6 +36,7 @@
 
 ul.repos {
   list-style-type: none;
+  margin-top: 5px;
 }
 
 .repo h4 {
