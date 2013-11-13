@@ -4,7 +4,11 @@ App.controller('RepoListCtrl', function RepoListCtrl($scope, $http) {
   $scope.querySearchAPI = function() {
       delete $scope.repos;
       $scope.currentDate = new Date();
-      $http.get("https://api.github.com/search/repositories?q=language:javascript&sort=updated&order=desc")
+      var langParam = '';
+      if ($scope.language) {
+        langParam = "language:" + encodeURI($scope.language) + "&";
+      }
+      $http.get("https://api.github.com/search/repositories?q=" + langParam + "sort=updated&order=desc")
           .success(function(data) {$scope.repos = data.items});
   };
 
