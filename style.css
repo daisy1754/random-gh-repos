@@ -9,6 +9,10 @@
   margin-right: 15px;
 }
 
+.result-info {
+  text-align: right;
+}
+
 .loading-indicator-container {
   margin-top: 50px;
   margin-left: 200px;
