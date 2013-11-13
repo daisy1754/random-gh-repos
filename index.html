@@ -28,7 +28,7 @@
 		    <li ng-hide="!repo.language">{{repo.language}}</span></li>
 		    <li ng-hide="!repo.size">{{repo.size}} KBytes</span></li>
 		    <li ng-hide="!repo.created_at || !repo.updated_at">
-                       <span class="title">Since</span>{{repo.created_at}} (last updated at {{repo.updated_at}})</span>
+                       <span class="title">Since</span>{{repo.created_at | date:'yyyy/MM/dd'}} (last updated at {{repo.updated_at | date:'yyyy/MM/dd HH:mm'}})</span>
                     </li>
                   </ul>
 		</div>
