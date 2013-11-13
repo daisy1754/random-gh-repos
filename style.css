@@ -13,6 +13,10 @@
   text-align: right;
 }
 
+.result-info span {
+  margin-left: 10px;
+}
+
 .loading-indicator-container {
   margin-top: 50px;
   margin-left: 200px;

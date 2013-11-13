@@ -18,7 +18,7 @@
         <button ng-click="queryRepositoriesAPI()" class="start-search-button">Random Repos Using Repositories API</button>
         <div class="result-container">
           <div class="loading-indicator-container" ng-hide="repos"><img src="loading-indicator.gif"></div>
-          <div ng-hide="!repos || repos.length == 0" class="result-info">{{repos.length}} results</div>
+          <div ng-hide="!repos || repos.length == 0" class="result-info"><span>{{repos.length}} results</span><span>({{currentDate | date:'MM/dd HH:mm:ss'}})</span></div>
           <ul class="repos list-group">
 	    <li ng-repeat="repo in repos" class="list-group-item">
 	      <div class="repo">

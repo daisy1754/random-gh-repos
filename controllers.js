@@ -3,12 +3,14 @@ var App = angular.module('randomGHRepos', []);
 App.controller('RepoListCtrl', function RepoListCtrl($scope, $http) {
   $scope.querySearchAPI = function() {
       delete $scope.repos;
+      $scope.currentDate = new Date();
       $http.get("https://api.github.com/search/repositories?q=language:javascript&sort=updated&order=desc")
           .success(function(data) {$scope.repos = data.items});
   };
 
   $scope.queryRepositoriesAPI = function() {
       delete $scope.repos;
+      $scope.currentDate = new Date();
       if (!$scope.numOfRepositoriesEstimate) {
         $http.get("https://api.github.com/search/repositories?q=created:>=" + $scope.formattedDate())
           .success(function(data) {
@@ -26,7 +28,7 @@ App.controller('RepoListCtrl', function RepoListCtrl($scope, $http) {
   }
 
   $scope.formattedDate = function() {
-      var now = new Date();
+      var now = $scope.currentDate;
       return now.getFullYear() + "-" + (now.getMonth() + 1) + "-" + now.getDate();
   }
 });
